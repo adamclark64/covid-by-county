@@ -1,0 +1,82 @@
+{
+  "name": "covid-by-county",
+  "private": false,
+  "description": "covid stats by county for usa",
+  "version": "1.0.0",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@nivo/line": "^0.61.1",
+    "@types/node-fetch": "^2.5.5",
+    "antd": "^4.1.1",
+    "babel-plugin-styled-components": "^1.10.7",
+    "esm": "^3.2.25",
+    "gatsby": "^2.15.28",
+    "gatsby-image": "^2.2.23",
+    "gatsby-plugin-antd": "^2.2.0",
+    "gatsby-plugin-google-analytics": "^2.2.2",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-less": "^3.1.1",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-offline": "^3.0.11",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-styled-components": "^3.2.1",
+    "gatsby-plugin-typography": "^2.4.1",
+    "gatsby-source-filesystem": "^2.1.28",
+    "gatsby-source-github-api": "^0.2.1",
+    "gatsby-styled-components-dark-mode": "^1.1.1",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0",
+    "react-helmet": "^5.2.1",
+    "react-typography": "^0.16.19",
+    "styled-components": "^5.0.1",
+    "typography": "^0.16.19",
+    "use-clipboard-copy": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-helmet": "^5.0.10",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gatsby-plugin-typescript": "^2.1.11",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "npx --node-arg '-r esm' gatsby build",
+    "develop": "npx --node-arg '-r esm' gatsby develop",
+    "start": "npm run develop",
+    "clean": "gatsby clean",
+    "serve": "npx --node-arg '-r esm' gatsby serve",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "_dontuse_prebuild": "yarn lint && yarn test",
+    "lint": "eslint '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
+    "lint:fix": "eslint --fix '{__mocks__,src,test}/**/*.{js,ts,tsx}'",
+    "type-check": "tsc --noEmit --skipLibCheck",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "contributors": [
+    "Adam Clark <aclark64@gmail.com>"
+  ],
+  "main": "index.js"
+}
