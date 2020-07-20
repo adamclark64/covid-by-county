@@ -56,7 +56,9 @@ export const useNytSelectedZipData = () => {
 
   const getStateData = () => {
     const stateCases = fetchedData.nyt.stateCases.filter(
-      x => x.fips.toString() === localLocationData.stcountyfp.substring(0, 2).toString()
+      x =>
+        localLocationData.stcountyfp &&
+        x.fips.toString() === localLocationData.stcountyfp.substring(0, 2).toString()
     )
     const stateData = {
       latestFirgures: stateCases[stateCases.length - 1],
@@ -91,10 +93,16 @@ export const useNytSelectedZipData = () => {
 const format = "M/D"
 const nyt = "nyt"
 const deathsData = (arr: CountyData[]) => {
-  const data = arr.map(i => ({
-    x: moment(i.date).format(format),
-    y: i.deaths,
-  }))
+  const data = arr.map((point: any, i: any, arr: any) => {
+    if (i === 0) {
+      i = 1
+    }
+    const prev = arr[i - 1]
+    return {
+      x: moment(point.date).format(format),
+      y: (point.deaths as any) - (prev.deaths as any),
+    }
+  })
   return {
     id: "Number of Deaths (nyt)",
     color: "#FFB996",
@@ -104,10 +112,16 @@ const deathsData = (arr: CountyData[]) => {
 }
 
 const caseData = (arr: CountyData[]) => {
-  const data = arr.map(i => ({
-    x: moment(i.date).format(format),
-    y: i.cases,
-  }))
+  const data = arr.map((point: any, i: any, arr: any) => {
+    if (i === 0) {
+      i = 1
+    }
+    const prev = arr[i - 1]
+    return {
+      x: moment(point.date).format(format),
+      y: (point.cases as any) - (prev.cases as any),
+    }
+  })
   return {
     id: "Number of Cases (nyt)",
     color: "#57B3AC",

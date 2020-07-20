@@ -79,10 +79,15 @@ const jhu = "jhu"
 const deathsData = (deathData: DeathData) => {
   const dataArr = Object.entries(deathData)
   const dataPoints = dataArr.slice(Math.max(dataArr.length - daysBack, 1))
-  const data = dataPoints.map(i => {
+  const data = dataPoints.map((point: any, i: any) => {
+    if (i === 0) {
+      i = 1
+    }
+    const prev: any = dataPoints[i - 1]
+    console.log("\x1b[36m%s\x1b[0m", "prev", prev)
     return {
-      x: moment(i[0]).format(format),
-      y: parseInt(i[1]),
+      x: moment(point[0]).format(format),
+      y: parseInt((point[1] - prev[1]) as any),
     }
   })
   return {
@@ -96,10 +101,14 @@ const deathsData = (deathData: DeathData) => {
 const caseData = (caseData: CaseData) => {
   const dataArr = Object.entries(caseData)
   const dataPoints = dataArr.slice(Math.max(dataArr.length - daysBack, 1))
-  const data = dataPoints.map(i => {
+  const data = dataPoints.map((point: any, i: any) => {
+    if (i === 0) {
+      i = 1
+    }
+    const prev: any = dataPoints[i - 1]
     return {
-      x: moment(i[0]).format(format),
-      y: parseInt(i[1]),
+      x: moment(point[0]).format(format),
+      y: parseInt((point[1] - prev[1]) as any),
     }
   })
   return {
